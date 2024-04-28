@@ -1,0 +1,44 @@
+<section class="p-5 userDetails">
+  <h4>List of Users</h4>
+  <div class="grid mt-3 fs-6 fw-bold">
+    <p class="">S/N</p>
+    <p class="">First Name</p>
+    <p class="">Last Name</p>
+    <p class="">Body Size</p>
+    <p class="">Description</p>
+  </div>
+
+  <main>
+    @for (user of userData; track user.id) {
+    <div class="grid mt-3">
+      <p class="">{{ user.id }}</p>
+      <p class="" (click)="openModal(viewUserTemplate, user.id)" class="cursor">
+        {{ user.firstName }}
+      </p>
+      <p class="">{{ user.lastName }}</p>
+      <p class="">{{ user.bodySize }}</p>
+      <p class="">{{ user.description }}</p>
+    </div>
+    }
+  </main>
+
+  <!-- modal section -->
+  <ng-template #viewUserTemplate>
+    <div class="p-4 text-dark">
+      @if (user) {
+      <p>First Name: {{ user.firstName }}</p>
+      <hr />
+      <p>Last name: {{ user.lastName }}</p>
+      <hr />
+      <p>Body Size: {{ user.bodySize }}</p>
+      <hr />
+      <p>Description: {{ user.description }}</p>
+      }@else{
+      <p>User does not exist</p>
+      }
+    </div>
+    <div class="modalButton mb-3">
+      <button (click)="exitModal()">close</button>
+    </div>
+  </ng-template>
+</section>

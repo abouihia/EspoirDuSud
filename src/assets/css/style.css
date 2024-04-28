@@ -91,10 +91,10 @@ h6 {
 }
 
 #header .logo {
-  font-size: 30px;
+  font-size: 20px;
   margin: 0;
   padding: 0;
-  font-weight: 600;
+  font-weight: 500;
   font-family: "Poppins", sans-serif;
 }
 
@@ -2123,3 +2123,9 @@ section {
   color: #fff;
   text-decoration: none;
 }
+
+.px-2 {
+  padding-right: 7.5rem !important;
+  padding-left: 0.5rem !important;
+}
+
