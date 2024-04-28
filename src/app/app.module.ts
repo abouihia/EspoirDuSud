@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 
@@ -19,18 +19,20 @@ import { CountDownComponent } from './components/count-down/count-down.component
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
+    FooterComponent,
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // for firestore
 
   ],
   providers: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

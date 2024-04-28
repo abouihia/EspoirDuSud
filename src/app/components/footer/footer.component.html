@@ -8,11 +8,11 @@
         <label for="inputPassword6" class="col-form-label">S'inscrire à notre newsletter</label>
       </div>
       <div class="col-auto">
-        <input type="email" id="inputPassword6" class="form-control" placeholder="votre addresse mail">
+        <input type="email"   [(ngModel)]="email.mail" id="inputPassword6" class="form-control" placeholder="votre addresse mail">
       </div>
       <div class="col-auto">
       <span id="passwordHelpInline" class="form-text">
-       <button type="submit" class="btn btn-danger">Souscrire</button>
+       <button type="submit" class="btn btn-danger"  (click)="saveEmail()">Souscrire</button>
       </span>
       </div>
     </div>
