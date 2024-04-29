@@ -78,9 +78,13 @@
               class="form-control"
               name="message"
               rows="5"
+              maxlength="10"
               placeholder="Message"
+              [(ngModel)]="contact.message"
+              (ngModelChange)="valueChange(contact.message)"
               required></textarea>
           </div>
+          <span>{{remainingText}}/10</span>
           <div class="my-3">
             <div class="loading">Loading</div>
             <div class="error-message"></div>

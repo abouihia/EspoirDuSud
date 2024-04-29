@@ -14,9 +14,15 @@ export class ContactComponent {
 
       contact: Contact = new Contact;
       submitted = false;
+     remainingText : number;
 
     constructor(private contactService: ContactService){
+    this.remainingText=0;
     }
+
+   valueChange(value) {
+  this.remainingText =  value.length;
+ }
 
     saveContact(): void {
         console.log(this.contact);
