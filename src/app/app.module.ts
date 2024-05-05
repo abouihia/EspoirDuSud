@@ -1,7 +1,6 @@
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
@@ -12,6 +11,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
 import { FooterComponent } from './components/footer/footer.component';
 import { CountDownComponent } from './components/count-down/count-down.component';
+import { ConnexionComponent } from './components/connexion/connexion.component';
 
 
 
@@ -19,6 +19,7 @@ import { CountDownComponent } from './components/count-down/count-down.component
 @NgModule({
   declarations: [
     AppComponent,
+    ConnexionComponent,
 
   ],
   imports: [
@@ -26,7 +27,6 @@ import { CountDownComponent } from './components/count-down/count-down.component
     AppRoutingModule,
     CommonModule,
     FooterComponent,
-
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // for firestore
 
