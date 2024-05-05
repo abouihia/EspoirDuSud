@@ -44,3 +44,10 @@ before all to this commande if not yet:npm install -g firebase-tools(if not yet 
 1- firebase login
 2- firebase init hosting
 3- firebase deploy
+
+
+
+# to delete node_modules
+   rm -rf node_modules/
+# to reconstruct the directory
+ npm install --force   
