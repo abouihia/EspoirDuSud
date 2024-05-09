@@ -13,6 +13,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { MembreComponent } from './components/membre/membre.component';
 import { VerifiyEmailComponent } from './components/verifiy-email/verifiy-email.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 TeamComponent
 export const routes: Routes = [
 { path: 'Contact',component:ContactComponent},
@@ -25,6 +26,7 @@ export const routes: Routes = [
 { path: 'Connexion', component: ConnexionComponent },
 { path: 'Membre', component: MembreComponent },
 { path: 'verify-email-address', component: VerifiyEmailComponent },
+{ path: 'forgot-password', component: ForgotPasswordComponent },
 { path: '', redirectTo: '/Event', pathMatch: 'full'}
 ];
 

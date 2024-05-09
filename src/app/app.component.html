@@ -33,10 +33,15 @@
         </li>
         <li><a class="nav-link scrollto" routerLink="/Contact">Contact</a></li>
         <li><a class="nav-link scrollto" routerLink="/Connexion">Connexion</a></li>
+        <li><a class="nav-link scrollto" *ngIf="authService.userData as user" >
+          <button type="button" class="btn btnPrimary" (click)="authService.SignOut()">
+             <a class="pull-right"> DéConnexion</a>
+          </button>
+        </a></li>
       </ul>
 
-    </nav><!-- .navbar -->
-    <app-modal></app-modal>
+    </nav>
+    
   </div>
 </header>
 <router-outlet></router-outlet>

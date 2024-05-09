@@ -45,7 +45,7 @@ export class AuthService {
         this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['Event']);
           }
         });
       })
@@ -82,6 +82,7 @@ export class AuthService {
 
   // Sign out
   SignOut() {
+    console.log("je passe pour la déconnexion");
     return this.afAuth.signOut().then(() => {   
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
@@ -93,12 +94,10 @@ export class AuthService {
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user: any) {
-    console.log("je suis la ")
+
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
-    console.log('userRef')
-    console.log(userRef)
     const userData: Membre = {
       uid: user.uid,
       email: user.email,
@@ -106,16 +105,18 @@ export class AuthService {
       emailVerified: user.emailVerified,
     };
   
-    console.log('enregistrement ok');
     return userRef.set(userData, { merge: true,});
   }
 
   // Reset Forggot password
   ForgotPassword(passwordResetEmail: string) {
+    console.log(passwordResetEmail);
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
+     
         window.alert('Password reset email sent, check your inbox.');
+        this.router.navigate(['Connexion']);
       })
       .catch((error) => {
         window.alert(error);
