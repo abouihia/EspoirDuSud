@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
-  styleUrl: './forgot-password.component.css',
+  styleUrl: '../../../assets/css/style.css',
   standalone:true,
   imports: [FormsModule,CommonModule, ReactiveFormsModule,RouterModule],
 })
