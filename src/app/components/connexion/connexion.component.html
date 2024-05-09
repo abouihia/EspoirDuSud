@@ -11,30 +11,57 @@
 
 
       <div class="col-lg-6">
-        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"  
+                        method="post" role="form" class="php-email-form">
           <div class="row">
             <div class="col form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Login" required>
+                <input type="email"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                      placeholder="email"
+                      [(ngModel)]="membre.email"
+                      formControlName="email"
+                      [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required"> votre email   </div>
+                  <div *ngIf="f.email.errors.email">votre email est invalid</div>
+                </div>
             </div>
             <div class="col form-group">
-              <input type="password" class="form-control" name="email" id="email" placeholder="votre mots de passe" required>
+                  <input type="password"
+                        class="form-control"
+                        name="password"
+                        id="password"
+                        placeholder="password"
+                        [(ngModel)]="membre.password"
+                        formControlName="password"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required"> votre password   </div>
+                    <div *ngIf="f.password.errors.email">votre password est invalid</div>
+                  </div>
             </div>
 
           </div>
 
+          <!-- Calling SignIn Api from AuthService -->
           <div class="text-center"><button type="submit">Se connecter</button></div>
 
           <div class="p-3"></div>
           <div class="row">
             <div class="col form-group">
-            <label class="pull-left checkbox-inline"><input type="checkbox"> Se souvenir de moi</label>
+              <label class="pull-left checkbox-inline"><input type="checkbox"> Se souvenir de moi</label>
             </div>
 
             <div class="col form-group">
-              <a href="#" class="pull-right">Mot de passe oublie?</a>
+              <a routerLink="/forgot-password" class="pull-right">Mot de passe oublie?</a>
             </div>
           </div>
-          <div class="text-center"><a href="#" class="pull-right">nouveau membre </a></div>
+          <div class="text-center">
+            <a routerLink="/Membre" class="pull-right">nouveau membre </a>
+            
+          </div>
         </form>
       </div>
 

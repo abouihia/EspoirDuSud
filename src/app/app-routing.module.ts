@@ -11,6 +11,8 @@ import { TeamComponent } from './components/team/team.component';
 import { EventsComponent } from './components/events/events.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
+import { MembreComponent } from './components/membre/membre.component';
+import { VerifiyEmailComponent } from './components/verifiy-email/verifiy-email.component';
 TeamComponent
 export const routes: Routes = [
 { path: 'Contact',component:ContactComponent},
@@ -21,6 +23,8 @@ export const routes: Routes = [
 { path: 'About', component: AboutComponent },
 { path: 'Accueil', component: AccueilComponent },
 { path: 'Connexion', component: ConnexionComponent },
+{ path: 'Membre', component: MembreComponent },
+{ path: 'verify-email-address', component: VerifiyEmailComponent },
 { path: '', redirectTo: '/Event', pathMatch: 'full'}
 ];
 

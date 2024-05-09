@@ -13,8 +13,6 @@ import { Time } from '../../models/time.model';
 })
 export class CountDownComponent  {
 
-
-
     public timeLeft: Observable<Time>;
       time: Time = new Time;
 
@@ -28,7 +26,6 @@ export class CountDownComponent  {
    calcDateDiff(endDay: Date = new Date(2024, 4, 22)): Time {
           const dDay = endDay.valueOf();
 
-           console.log ("dDay:"+ dDay)
 
           const milliSecondsInASecond = 1000;
           const hoursInADay = 24;
@@ -36,15 +33,11 @@ export class CountDownComponent  {
           const secondsInAMinute = 60;
 
           const timeDifference = dDay - Date.now();
-         console.log ("timeDifference:"+ timeDifference)
           const daysToDday = Math.floor(  timeDifference /(milliSecondsInASecond * minutesInAnHour * secondsInAMinute * hoursInADay)  );
-          console.log ("daysToDday:"+ daysToDday)
           const hoursToDday = Math.floor(
             (timeDifference /(milliSecondsInASecond * minutesInAnHour * secondsInAMinute)) %  hoursInADay
           );
-          console.log ("hoursToDday:"+ hoursToDday)
           const minutesToDday = Math.floor(  secondsInAMinute );
- console.log ("minutesToDday:"+ minutesToDday)
           const secondsToDday = Math.floor(timeDifference / milliSecondsInASecond) % secondsInAMinute;
 
           return { secondsToDday, minutesToDday, hoursToDday, daysToDday };

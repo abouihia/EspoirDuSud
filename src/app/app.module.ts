@@ -10,16 +10,16 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
 import { FooterComponent } from './components/footer/footer.component';
-import { CountDownComponent } from './components/count-down/count-down.component';
-import { ConnexionComponent } from './components/connexion/connexion.component';
+import { ModalComponent } from './components/modal/modal.component';
 
-
+import { BsModalService } from "ngx-bootstrap/modal";
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConnexionComponent,
+    ModalComponent,
 
   ],
   imports: [
@@ -28,10 +28,11 @@ import { ConnexionComponent } from './components/connexion/connexion.component';
     CommonModule,
     FooterComponent,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     AngularFirestoreModule, // for firestore
 
   ],
-  providers: [],
+  providers: [BsModalService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })

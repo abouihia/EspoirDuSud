@@ -1,0 +1,149 @@
+->
+
+->
+<section id="contact" class="contact">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Devenir membre</h2>
+      <p>Si vous souhaitez devenir membre de notre association et accèdes  nous vous invitons à s'inscrire et remplire ce formulaire</p>
+    </div>
+
+    <div class="container d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="100">
+
+
+      <div class="col-lg-6">
+        <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()" 
+                        method="post" role="form" class="php-email-form">
+
+                         <!-- prenom-->
+            <div class="col form-group">
+                <input    type="text"
+                          name="firstname"
+                          class="form-control"
+                          id="firstname"
+                          placeholder="Prénom"
+                          [(ngModel)]="membre.firstName"
+                          formControlName="firstName"
+                          [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" >
+                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                            <div *ngIf="f.firstName.errors.required"> votre prénom  </div>
+                </div>  
+            </div>
+                <!-- Nom-->
+            <div class="col form-group">
+                <input type="text"
+                class="form-control"
+                name="lastname"
+                id="lastname"
+                placeholder="Nom"
+                [(ngModel)]="membre.lastName"
+                formControlName="lastName"
+                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                  <div *ngIf="f.lastName.errors.required"> votre prénom  </div>
+                </div> 
+            </div>
+
+
+             <!-- email-->
+             <div class="col form-group">
+                <input type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                placeholder="email"
+                [(ngModel)]="membre.email"
+                formControlName="email"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required"> votre email   </div>
+                  <div *ngIf="f.email.errors.email">votre email est invalid</div>
+                </div> 
+             </div>
+         
+
+          <!-- addresse-->
+          <div class="col form-group">
+              <input type="text"
+              class="form-control"
+              name="addresse"
+              id="addresse"
+              placeholder="addresse"
+              [(ngModel)]="membre.address"
+              formControlName="address"
+              [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
+              <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                <div *ngIf="f.address.errors.required"> votre addresse  </div>
+              </div> 
+        </div>
+
+
+          <!-- telephone-->
+          <div class="col form-group">
+            <input type="text"
+            class="form-control"
+            name="telephone"
+            id="telephone"
+            placeholder="telephone"
+            [(ngModel)]="membre.phone"
+            formControlName="phone"
+            [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+            <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+              <div *ngIf="f.phone.errors.required"> votre telephone  </div>
+            </div> 
+        </div>
+
+         <!-- password-->
+         <div class="col form-group">
+              <input [type]="getIputType()"
+              class="form-control"
+              name="password"
+              id="password"
+              placeholder="password"
+              [(ngModel)]="membre.password"
+              formControlName="password"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+              <button (click)="toggleVisibility()">
+                <i class="fa" [ngClass]="{'fa-eye': hide, 'fa-eye-slash': !hide}"></i>
+              </button>
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required"> votre mot de passe  </div>
+                <div *ngIf="f.password.errors.minlength">Password min 6 caractères</div>
+              </div> 
+        </div>
+
+        <!-- confirmPassword-->
+        <div class="col form-group">
+          <input [type]="getIputType()"
+          class="form-control"
+          name="confirmPassword"
+          id="confirmPassword"
+          placeholder="confirmPassword"
+          [(ngModel)]="membre.confirmPassword"
+          formControlName="confirmPassword"
+          [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+          <button (click)="toggleVisibility()">
+            <i class="fa" [ngClass]="{'fa-eye': hide, 'fa-eye-slash': !hide}"></i>
+          </button>
+          <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+            <div *ngIf="f.confirmPassword.errors.required"> confirmer votre mot de passe </div>
+            <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+          </div> 
+    </div>
+    
+    
+   
+          
+            <div class="text-center">  
+                 <div class="text-center"></div><button type="submit" >S'inscrire</button>
+                 <div class="text-center"></div><button type="reset" >Cancel</button>
+            </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+

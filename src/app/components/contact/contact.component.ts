@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Contact } from '../../models/contact.model';
-import { HttpClient } from '@angular/common/http';
 import {ContactService} from '../../services/contact.service';
 import { FormsModule } from '@angular/forms';
 @Component({
@@ -21,8 +20,8 @@ export class ContactComponent {
     }
 
    valueChange(value) {
-  this.remainingText =  value.length;
- }
+      this.remainingText =  value.length;
+   }
 
     saveContact(): void {
         console.log(this.contact);
