@@ -54,16 +54,7 @@ export class AuthService {
         });
       })
       .catch((error) => {
-        if( error instanceof FirebaseError ) {
-             console.log("erreur");
-           } 
-        
-
-        console.log(error.code);
-        console.log(error.message);
         this.isUnknowUser= true;
-        this.router.navigate(['Connexion']);
-        return error.code;
       });
   }
 
@@ -98,7 +89,9 @@ export class AuthService {
     console.log("je passe pour la déconnexion");
     return this.afAuth.signOut().then(() => {   
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.userData =null;
+      this.router.navigate(['Connexion']);
+     
     });
   }
 

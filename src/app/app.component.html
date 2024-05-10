@@ -10,7 +10,9 @@
 
         <li><a  class="nav-link scrollto"  routerLink="/Event"  >Actualité</a></li>
         <li><a class="nav-link scrollto" routerLink="/Services">Services</a></li>
-        <li><a class="nav-link scrollto "  routerLink="/Photos">Photo</a></li>
+        <div class="row" *ngIf="authService.userData as user">
+           <li><a class="nav-link scrollto "  routerLink="/Photos">Photo</a></li>
+        </div>
         <li><a class="nav-link scrollto" routerLink="/Team">Team</a></li>
         <li><a class="nav-link scrollto active" routerLink="/Accueil">Qui sommes nous</a></li>
         <li class="dropdown"><a href="#"><span>Démocration & droits</span> <i class="bi bi-chevron-down"></i></a>
