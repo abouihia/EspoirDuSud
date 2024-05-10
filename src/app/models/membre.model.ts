@@ -10,4 +10,5 @@ export class Membre {
     confirmPassword?:string;
     displayName?:string;
     emailVerified?:boolean;
+    villageOrigine?: string;
 }

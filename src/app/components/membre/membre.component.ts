@@ -23,7 +23,6 @@ export class MembreComponent {
       hide = true;
 
 
-
       constructor(private contactService: ContactService,  
          private formBuilder: FormBuilder,   public authService: AuthService){  }
 
@@ -36,11 +35,27 @@ export class MembreComponent {
           phone: ['', Validators.required],
           password: ['', [Validators.required, Validators.minLength(8)]],
           confirmPassword: ['', Validators.required],
+          villageOrigine: ['', Validators.required],      
         }, {
           validators: MustMatch('password', 'confirmPassword')
       });
     }
+     
+   
 
+  village : any = [
+        'Ait Brahim ou Youssef' ,
+         'Afergoula' ,
+         'Aouja' ,
+         'Bourjaylat' ,
+         'Sbouy' ,
+         'ElFeid' ,
+         'Boungaref' ,
+       'Lmarhjoub' ,
+         'Taglmoust' ,
+         'AAmor' 
+    ];
+  
 
     // convenience getter for easy access to form fields
     get f() { return this.registerForm.controls; }
@@ -60,7 +75,11 @@ export class MembreComponent {
     onSubmit() {
        this.submitted = true;
        // stop here if form is invalid
+       console.log(this.registerForm.controls['villageOrigine'].value)
+      
        if (this.registerForm.invalid) {  return; }
+       // voir comment améliorer ça.
+       this.membre.villageOrigine=this.registerForm.controls['villageOrigine'].value
        this.authService.SignUp(this.membre);
   }
 
