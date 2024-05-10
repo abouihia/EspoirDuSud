@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalComponent } from './modal.component';
+import { AccesDroitsComponent } from './acces-droits.component';
 
-describe('ModalComponent', () => {
-  let component: ModalComponent;
-  let fixture: ComponentFixture<ModalComponent>;
+describe('AccesDroitsComponent', () => {
+  let component: AccesDroitsComponent;
+  let fixture: ComponentFixture<AccesDroitsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ModalComponent]
+      declarations: [AccesDroitsComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ModalComponent);
+    fixture = TestBed.createComponent(AccesDroitsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

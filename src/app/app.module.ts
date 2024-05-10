@@ -10,11 +10,9 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from '../environments/environment';
 import { FooterComponent } from './components/footer/footer.component';
-import { ModalComponent } from './components/modal/modal.component';
 
 import { BsModalService } from "ngx-bootstrap/modal";
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-
 
 
 @NgModule({

@@ -6,6 +6,9 @@
       <h2>Connexion</h2>
       <p>Si vous êtes adhérents vous pouvez  vous connecter en saissant votre login et mots de passe</p>
     </div>
+    <div class="alert alert-warning" *ngIf="authService.isUnknowUser" role="alert">
+       utilisteur  inconnu, vous pouvez vous inscrire via le lien nouveau membre
+      </div>
 
     <div class="container d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="100">
 

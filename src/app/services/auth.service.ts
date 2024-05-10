@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { Membre } from '../models/membre.model';
+import { FirebaseError } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,9 @@ import { Membre } from '../models/membre.model';
 export class AuthService {
 
   userData: any; // Save logged in user data
+  isUnknowUser=false;
+  
+ 
 
   private dbMembre ='/membre'
   membreRef: AngularFirestoreCollection <Membre>;
@@ -39,7 +43,7 @@ export class AuthService {
       }//fin du constructeur
 
         // Sign in with email/password (Connexion)
-  SignIn(membre:Membre) {
+   SignIn(membre:Membre)   {
     return this.afAuth .signInWithEmailAndPassword(membre.email!, membre.password!)
       .then((result) => {
         this.SetUserData(result.user);
@@ -50,7 +54,16 @@ export class AuthService {
         });
       })
       .catch((error) => {
-        window.alert(error.message);
+        if( error instanceof FirebaseError ) {
+             console.log("erreur");
+           } 
+        
+
+        console.log(error.code);
+        console.log(error.message);
+        this.isUnknowUser= true;
+        this.router.navigate(['Connexion']);
+        return error.code;
       });
   }
 
@@ -119,6 +132,7 @@ export class AuthService {
         this.router.navigate(['Connexion']);
       })
       .catch((error) => {
+        console.log  (" utiliseur non connue")
         window.alert(error);
       });
   }

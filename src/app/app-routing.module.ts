@@ -14,6 +14,8 @@ import { ConnexionComponent } from './components/connexion/connexion.component';
 import { MembreComponent } from './components/membre/membre.component';
 import { VerifiyEmailComponent } from './components/verifiy-email/verifiy-email.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { AccesDroitsComponent } from './components/acces-droits/acces-droits.component';
+import { DemocratiesComponent } from './components/democraties/democraties.component';
 TeamComponent
 export const routes: Routes = [
 { path: 'Contact',component:ContactComponent},
@@ -27,6 +29,8 @@ export const routes: Routes = [
 { path: 'Membre', component: MembreComponent },
 { path: 'verify-email-address', component: VerifiyEmailComponent },
 { path: 'forgot-password', component: ForgotPasswordComponent },
+{ path: 'AccesDroits', component: AccesDroitsComponent },
+{ path: 'Democraties', component: DemocratiesComponent },
 { path: '', redirectTo: '/Event', pathMatch: 'full'}
 ];
 

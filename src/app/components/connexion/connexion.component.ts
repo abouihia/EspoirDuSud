@@ -40,10 +40,8 @@ export class ConnexionComponent {
     this.submitted = true;
     // stop here if form is invalid
     if (this.registerForm.invalid) {  return; }
-      console.log(this.membre);
-      this.authService.SignIn(this.membre);
-    
-}
+        this.authService.SignIn(this.membre);
+  }
 
   onReset() {
     this.submitted = false;
