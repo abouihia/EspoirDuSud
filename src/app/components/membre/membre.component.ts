@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Membre } from '../../models/membre.model';
 import {ContactService} from '../../services/contact.service';
 import { FormBuilder, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -8,6 +8,9 @@ import { CommonModule } from '@angular/common';
 import { MustMatch } from '../../_helpers';
 import { AuthService } from '../../services/auth.service';
 
+
+
+
 @Component({
   selector: 'app-membre',
   templateUrl: './membre.component.html',
@@ -15,7 +18,8 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [FormsModule,CommonModule, ReactiveFormsModule],
 })
-export class MembreComponent {
+export class MembreComponent implements OnInit {
+
 
       membre: Membre = new Membre;
       registerForm!: FormGroup;
@@ -87,6 +91,43 @@ export class MembreComponent {
       this.submitted = false;
       this.registerForm.reset();
   }
+
+
+  
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       
 
 }

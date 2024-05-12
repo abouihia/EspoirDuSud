@@ -51,3 +51,5 @@ before all to this commande if not yet:npm install -g firebase-tools(if not yet 
    rm -rf node_modules/
 # to reconstruct the directory
  npm install --force   
+
+ # mettre une application en production

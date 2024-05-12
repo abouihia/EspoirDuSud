@@ -15,12 +15,13 @@ import { BsModalService } from "ngx-bootstrap/modal";
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 
+import { NgxPayPalModule } from 'ngx-paypal';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-
-
   ],
   imports: [
     BrowserModule,
@@ -30,6 +31,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule, // for firestore
+    NgxPayPalModule,
 
   ],
   providers: [BsModalService],

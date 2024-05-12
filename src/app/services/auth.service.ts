@@ -12,7 +12,7 @@ export class AuthService {
 
   userData: any; // Save logged in user data
   isUnknowUser=false;
-  
+  isknowUser =false;
  
 
   private dbMembre ='/membre'
@@ -72,7 +72,8 @@ export class AuthService {
         this.createMembre(membre);
       })
       .catch((error) => {
-        window.alert(error.message);
+        console.log(error);
+        this.isknowUser= true;
       });
   }
 

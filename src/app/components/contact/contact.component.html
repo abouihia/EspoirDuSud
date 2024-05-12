@@ -19,8 +19,14 @@
           <div class="col-md-12">
             <div class="info-box">
               <i class="bx bx-map"></i>
-              <h3>Our Address</h3>
-              <p>A108 Adam Street, New York, NY 535022</p>
+              <h2> our region</h2>
+              <google-map height="400px"
+                          width="640px"
+                          [center]="center"
+                          [zoom]="zoom"
+                          (mapClick)="moveMap($event)"
+                          (mapMousemove)="move($event)">
+            </google-map>
             </div>
           </div>
           <div class="col-md-6">

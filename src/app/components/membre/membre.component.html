@@ -8,6 +8,9 @@
       <h2>Devenir membre</h2>
       <p>Si vous souhaitez devenir membre de notre association et accèdes  nous vous invitons à s'inscrire et remplire ce formulaire</p>
     </div>
+    <div class="alert alert-warning text-center" *ngIf="authService.isknowUser" role="alert">
+      Une addresse email existe déja utilisé par un autre compte
+     </div>
 
     <div class="container d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="100">
 
@@ -161,7 +164,8 @@
             <div class="text-center">  
               <div class="text-center"></div><button type="reset" >Cancel</button>    
           </div>
-           
+         
+
         </form>
       </div>
 
