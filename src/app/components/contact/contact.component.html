@@ -108,7 +108,7 @@
               placeholder="Message"
               formControlName="message"
               [(ngModel)]="contact.message"
-              (ngModelChange)="valueChange(contact.message)"
+              (ngModelChange)="valueChange()"
               [ngClass]="{ 'is-invalid': submitted && f.message.errors }" 
               required></textarea>
               <div *ngIf="submitted && f.message.errors" class="invalid-feedback">

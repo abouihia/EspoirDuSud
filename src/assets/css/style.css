@@ -610,6 +610,7 @@ section {
   display: inline-flex;
   align-items: center;
   border: 2px solid #2dbe4e;
+  background-color: black;
 }
 
 .about .content .about-btn i {

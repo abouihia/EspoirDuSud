@@ -30,6 +30,7 @@ export class FooterComponent {
                          if( x.mail === emailParsed.mail){this.existMail =true;  break;}
              }
           }
+          console.log(this.existMail);
         if(! this.existMail){
          this.contactService.addNewEmail(this.email).then(() => {  this.email = new Email();   });
         }

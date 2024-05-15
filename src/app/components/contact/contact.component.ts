@@ -71,11 +71,11 @@ export class ContactComponent {
 
       
 
-      valueChange(value) {
+      valueChange() {
   
-      console.log(this.registerForm.controls['message'].value)
+      let val =this.registerForm.controls['message'].value;
  
-          this.remainingText =  value.length;
+          this.remainingText =  val.length;
       }
 
         saveContact(): void {
