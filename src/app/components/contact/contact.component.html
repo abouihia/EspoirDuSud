@@ -48,8 +48,10 @@
       </div>
 
       <div class="col-lg-6">
-        @if (!submitted) {
-        <form  method="post" role="form" class="php-email-form">
+    
+        <form  [formGroup]="registerForm" 
+            (ngSubmit)="saveContact()" 
+                   method="post" role="form" class="php-email-form" *ngIf="!sendedOk">
           <div class="row">
             <div class="col form-group">
               <input    type="text"
@@ -57,17 +59,30 @@
                         class="form-control"
                         id="name"
                         placeholder="Your Name"
+                        formControlName="name"
                         [(ngModel)]="contact.name"
+                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }" 
                         required>
+                        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                          <div *ngIf="f.name.errors.required"> votre nom </div>
+                          
+                        </div>
             </div>
             <div class="col form-group">
               <input type="email"
                      class="form-control"
                      name="email"
                      id="email"
+                     formControlName="email"
                      placeholder="Your Email"
+                     formControlName="email"
                      [(ngModel)]="contact.email"
+                     [ngClass]="{ 'is-invalid': submitted && f.email.errors }" 
                      required>
+                     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                      <div *ngIf="f.email.errors.required"> votre email   </div>
+                      <div *ngIf="f.email.errors.email">votre email est invalid</div>
+                    </div>
             </div>
           </div>
           <div class="form-group">
@@ -76,35 +91,46 @@
                     name="subject"
                     id="subject"
                     placeholder="Subject"
+                    formControlName="subject"
                     [(ngModel)]="contact.sujet"
+                    [ngClass]="{ 'is-invalid': submitted && f.subject.errors }" 
                     required>
+                    <div *ngIf="submitted && f.subject.errors" class="invalid-feedback">
+                      <div *ngIf="f.subject.errors.required"> votre sujet   </div>
+                    </div> 
           </div>
           <div class="form-group">
             <textarea
               class="form-control"
               name="message"
               rows="5"
-              maxlength="10"
+              maxlength="100"
               placeholder="Message"
+              formControlName="message"
               [(ngModel)]="contact.message"
               (ngModelChange)="valueChange(contact.message)"
+              [ngClass]="{ 'is-invalid': submitted && f.message.errors }" 
               required></textarea>
+              <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+                <div *ngIf="f.message.errors.required"> votre message  </div>
+              </div>
           </div>
-          <span>{{remainingText}}/10</span>
+          <span>{{remainingText}}/100</span>
           <div class="my-3">
             <div class="loading">Loading</div>
             <div class="error-message"></div>
             <div class="sent-message">Your message has been sent. Thank you!</div>
           </div>
           <div class="text-center">
-            <button type="submit" (click)="saveContact()">Send Message</button>
+            <button type="submit">Send Message</button>
           </div>
         </form>
-        }@else{
-        <div>
+        
+
+       <div class="alert alert-warning text-center" *ngIf="sendedOk" role="alert">
           <h4>Votre message à bien était envoyé</h4>
         </div>
-        }
+      
       </div>
 
     </div>
