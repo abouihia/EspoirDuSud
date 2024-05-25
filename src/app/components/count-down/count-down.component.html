@@ -1,6 +1,7 @@
 
 
 <div class="timer" *ngIf="(timeLeft | async) as t; else sorry">
+  <span id="days"> {{t.monthToDday}} </span>Month(s)
   <span id="days"> {{t.daysToDday}} </span>Day(s)
   <span id="hours"> {{t.hoursToDday}} </span>Hrs
   <span id="minutes"> {{t.minutesToDday}} </span>Min

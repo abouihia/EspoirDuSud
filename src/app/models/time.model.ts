@@ -4,4 +4,5 @@ export class Time {
   minutesToDday?: number;
   hoursToDday?: number;
   daysToDday?: number;
+  monthToDday?: number;
 }

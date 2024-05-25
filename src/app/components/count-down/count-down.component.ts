@@ -23,23 +23,28 @@ export class CountDownComponent  {
         );
       }
 
-   calcDateDiff(endDay: Date = new Date(2024, 4, 22)): Time {
-          const dDay = endDay.valueOf();
+   calcDateDiff(eventDay: Date = new Date(2024, 9, 22)): Time {
 
+          const nowDate = new Date();
+          const dDay = eventDay.valueOf();
+          const timeDifference = dDay - Date.now();
 
           const milliSecondsInASecond = 1000;
           const hoursInADay = 24;
           const minutesInAnHour = 60;
           const secondsInAMinute = 60;
 
-          const timeDifference = dDay - Date.now();
-          const daysToDday = Math.floor(  timeDifference /(milliSecondsInASecond * minutesInAnHour * secondsInAMinute * hoursInADay)  );
+        
+  
+          const daysToDday = eventDay.getDay() -nowDate.getDate();
+          const monthToDday = (eventDay.getMonth()+1) - (nowDate.getMonth()+1);
+
           const hoursToDday = Math.floor(
             (timeDifference /(milliSecondsInASecond * minutesInAnHour * secondsInAMinute)) %  hoursInADay
           );
           const minutesToDday = Math.floor(  secondsInAMinute );
           const secondsToDday = Math.floor(timeDifference / milliSecondsInASecond) % secondsInAMinute;
 
-          return { secondsToDday, minutesToDday, hoursToDday, daysToDday };
+          return { secondsToDday, minutesToDday, hoursToDday, daysToDday, monthToDday };
         }
 }
