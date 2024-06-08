@@ -15,10 +15,10 @@
     <div class="container d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="100">
 
       <div class="col-lg-6">
-          <form  [formGroup]="registerForm" 
-                  (ngSubmit)="onSubmit()" 
-                  method="post" 
-                  role="form" 
+          <form  [formGroup]="registerForm"
+                  (ngSubmit)="onSubmit()"
+                  method="post"
+                  role="form"
                   class="php-email-form">
 
                           <!-- prenom-->
@@ -33,7 +33,7 @@
                                   [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" >
                         <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
                                     <div *ngIf="f.firstName.errors.required"> votre prénom  </div>
-                        </div>  
+                        </div>
                     </div>
                         <!-- Nom-->
                     <div class="col form-group">
@@ -47,7 +47,7 @@
                         [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
                         <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
                           <div *ngIf="f.lastName.errors.required"> votre prénom  </div>
-                        </div> 
+                        </div>
                     </div>
 
 
@@ -64,9 +64,9 @@
                         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                           <div *ngIf="f.email.errors.required"> votre email   </div>
                           <div *ngIf="f.email.errors.email">votre email est invalid</div>
-                        </div> 
+                        </div>
                     </div>
-                
+
 
                   <!-- addresse-->
                   <div class="col form-group">
@@ -80,17 +80,17 @@
                       [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
                       <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
                         <div *ngIf="f.address.errors.required"> votre addresse  </div>
-                      </div> 
+                      </div>
                 </div>
 
                 <div class="col form-group">
-                
-                  <select 
-                      class="form-select" 
-                      id="villageOrigine" 
-                      name="villageOrigine" 
+
+                  <select
+                      class="form-select"
+                      id="villageOrigine"
+                      name="villageOrigine"
                       formControlName="villageOrigine"
-                      aria-placeholder="votre village d'origine"  
+                      aria-placeholder="votre village d'origine"
                       [ngClass]="{ 'is-invalid': submitted && f.villageOrigine.errors }">
                     <option selected [ngValue]="null" disabled> Selectionner votre village d'origine</option>
                     <option *ngFor="let villageOrigine of village; let i=index" [ngValue]="villageOrigine">
@@ -99,8 +99,8 @@
                   </select>
                   <div *ngIf="submitted && f.villageOrigine.errors" class="invalid-feedback">
                     <div *ngIf="f.villageOrigine.errors.required"> village d'orgine</div>
-                  
-                  </div> 
+
+                  </div>
 
               </div>
 
@@ -116,10 +116,11 @@
                     [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
                     <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
                       <div *ngIf="f.phone.errors.required"> votre telephone  </div>
-                    </div> 
+                    </div>
                 </div>
                 <!-- password-->
-                <div class="col form-group">
+                <div class="col input-icons">
+                  <i class="fa fa-eye icon" [ngClass]="{'fa-eye': hide, 'fa-eye-slash': !hide}" (click)="toggleVisibility()"></i>
                       <input [type]="getIputType()"
                       class="form-control"
                       name="password"
@@ -128,17 +129,15 @@
                       [(ngModel)]="membre.password"
                       formControlName="password"
                       [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-                      <button (click)="toggleVisibility()">
-                        <i class="fa" [ngClass]="{'fa-eye': hide, 'fa-eye-slash': !hide}"></i>
-                      </button>
                       <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                         <div *ngIf="f.password.errors.required"> votre mot de passe  </div>
                         <div *ngIf="f.password.errors.minlength">Password min 6 caractères</div>
-                      </div> 
+                      </div>
                 </div>
 
                 <!-- confirmPassword-->
-                <div class="col form-group">
+                <div class="col input-icons">
+                  <i class="fa fa-eye icon" [ngClass]="{'fa-eye': hide, 'fa-eye-slash': !hide}" (click)="toggleVisibility()"></i>
                   <input [type]="getIputType()"
                   class="form-control"
                   name="confirmPassword"
@@ -147,23 +146,21 @@
                   [(ngModel)]="membre.confirmPassword"
                   formControlName="confirmPassword"
                   [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
-                  <button (click)="toggleVisibility()">
-                    <i class="fa" [ngClass]="{'fa-eye': hide, 'fa-eye-slash': !hide}"></i>
-                  </button>
                   <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
                     <div *ngIf="f.confirmPassword.errors.required"> confirmer votre mot de passe </div>
                     <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
-                  </div> 
+                  </div>
             </div>
             <!--  les buttons-->
-            <div class="text-center">  
-                        <div class="text-center"></div><button type="submit" >S'inscrire</button>    
+            <div class="text-center">
+                        <div class="text-center"></div><button type="submit" >S'inscrire</button>
             </div>
             <div class="p-3"></div>
-            <div class="text-center">  
-              <div class="text-center"></div><button type="reset" >Cancel</button>    
-          </div>
-         
+            <div class="text-center">
+              <div class="text-center"></div><button type="reset" >Cancel</button>
+             </div>
+
+
 
         </form>
       </div>
