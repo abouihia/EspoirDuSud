@@ -23,7 +23,7 @@ export class CountDownComponent  {
         );
       }
 
-   calcDateDiff(eventDay: Date = new Date(2024, 9, 22)): Time {
+   calcDateDiff(eventDay: Date = new Date(2024, 10, 13)): Time {
 
           const nowDate = new Date();
           const dDay = eventDay.valueOf();
@@ -34,8 +34,8 @@ export class CountDownComponent  {
           const minutesInAnHour = 60;
           const secondsInAMinute = 60;
 
-        
-  
+
+
           const daysToDday = eventDay.getDay() -nowDate.getDate();
           const monthToDday = (eventDay.getMonth()+1) - (nowDate.getMonth()+1);
 
